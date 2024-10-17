@@ -1,0 +1,14 @@
+<h1>Train Seat Booking System</h1>
+
+<input #numSeats type="number" min="1" max="7" placeholder="Number of seats" />
+<button (click)="bookSeats(numSeats.value)">Book Seats</button>
+
+<p>Seats Booked: {{ getBookedSeatsString() }}</p>
+
+<div class="seat-grid">
+  <button *ngFor="let seat of totalSeats"
+          [class.booked]="seat.booked"
+          (click)="toggleSeat(seat)">
+    {{ seat.row }}-{{ seat.seat }}
+  </button>
+</div>
